@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Cadastro</title></head>
+<body>
+    <h2>Cadastro de Novo Usuário</h2>
+    <p th:if="${param.existe}" style="color:red">Esse nome de usuário já existe.</p>
+    <form th:action="@{/cadastro}" method="post">
+        <div><label>Usuário: <input type="text" name="username"/></label></div>
+        <div><label>Senha: <input type="password" name="password"/></label></div>
+        <div>
+            <label>Perfil:
+                <select name="role">
+                    <option value="ROLE_USER">Usuário Comum</option>
+                    <option value="ROLE_MANAGER">Gerente</option>
+                    <option value="ROLE_ADMIN">Administrador</option>
+                </select>
+            </label>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
